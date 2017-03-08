@@ -8,10 +8,10 @@ This is a simple bash/shell script to backup running virtual machines on Xen Ser
 
 Download this script and modify some parameters as per your network and directory structure.
 
-MOUNTPOINT=/xenmnt   ## change this with your system mount point
-UUIDFILE=/tmp/xen-uuids.txt   ## You may change this also
-NFS_SERVER_IP="192.168.10.100"   ## IP of your NFS server.
-FILE_LOCATION_ON_NFS="/backup/citrix/vms"  ## Location to store backups on NFS server.
+- MOUNTPOINT=/xenmnt   ## change this with your system mount point
+- UUIDFILE=/tmp/xen-uuids.txt   ## You may change this also
+- NFS_SERVER_IP="192.168.10.100"   ## IP of your NFS server.
+- FILE_LOCATION_ON_NFS="/backup/citrix/vms"  ## Location to store backups on NFS server.
 
 
 Now execute the script from command line
