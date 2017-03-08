@@ -2,16 +2,17 @@
 #
 # Written By: Mr Rahul Kumar
 # Created date: Jun 14, 2014
-# Last Updated: Jan 22, 2016
-# Version: 1.2
-# Visit: https://tecadmin.net
+# Last Updated: Mar 08, 2017
+# Version: 1.2.1
+# Visit: https://tecadmin.net/backup-running-virtual-machine-in-xenserver/
 #
 
 DATE=`date +%d%b%Y`
 XSNAME=`echo $HOSTNAME`
-MOUNTPOINT=/xenmnt
 UUIDFILE=/tmp/xen-uuids.txt
 NFS_SERVER_IP="192.168.10.100"
+MOUNTPOINT=/xenmnt
+FILE_LOCATION_ON_NFS="/backup/citrix/vms"
 
 ### Create mount point
 
@@ -20,7 +21,7 @@ mkdir -p ${MOUNTPOINT}
 ### Mounting remote nfs share backup drive
 
 [ ! -d ${MOUNTPOINT} ]  && echo "No mount point found, kindly check"; exit 0
-mount -F nfs ${NFS_SERVER_IP}:/backup/citrix/vms ${MOUNTPOINT}
+mount -F nfs ${NFS_SERVER_IP}:${FILE_LOCATION_ON_NFS} ${MOUNTPOINT}
 
 BACKUPPATH=${MOUNTPOINT}/${XSNAME}/${DATE}
 mkdir -p ${BACKUPPATH}
